@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <random>
-
+#include <time.h>
 
 using namespace std;
 
@@ -17,6 +17,11 @@ int tossesT;
 
 
 int main(int argc, char* argv[]){
+	clock_t cpuStart, cpuEnd;
+	time_t timeStart, timeEnd;
+	timeStart = time(NULL);
+	cpuStart = clock();
+	
 	if (argc != 3){
 		printf("Cantidad de parametros invalida, ingrese 2 argumentos.");
 	}
@@ -26,6 +31,15 @@ int main(int argc, char* argv[]){
 		float resultPi = monteCarloPi(threads, tosses);	
 		printf("Aproximación de pi: %f\n", resultPi);
 	}
+	
+	timeEnd = time(NULL);
+	cpuEnd = clock();
+
+	double cpuTime = ((double) (cpuEnd - cpuStart)) / CLOCKS_PER_SEC;
+   	double realTime = difftime(timeEnd, timeStart);
+
+       	printf("Tiempo de CPU: %.6f segundos\n", cpuTime);
+    	printf("Tiempo real: %.6f segundos\n", realTime);
 
 
 	return 0;
