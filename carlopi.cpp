@@ -30,6 +30,7 @@ int main(int argc, char* argv[]){
 		int tosses = atoi(argv[2]);
 		float resultPi = monteCarloPi(threads, tosses);	
 		printf("Aproximación de pi: %f\n", resultPi);
+		printf("Error: %f\n", (M_PI - resultPi));
 	}
 	
 	timeEnd = time(NULL);
@@ -40,7 +41,6 @@ int main(int argc, char* argv[]){
 
        	printf("Tiempo de CPU: %.6f segundos\n", cpuTime);
     	printf("Tiempo real: %.6f segundos\n", realTime);
-
 
 	return 0;
 }

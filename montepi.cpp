@@ -5,6 +5,7 @@
 #include <random>
 #include <cmath>
 #include <ctime>
+#include <math.h>
 
 using namespace std;
 
@@ -49,7 +50,7 @@ int main(int argc, char* argv[]){
 	float ans;
         ans = idk(tosses);
         printf("Result: %.6f\n", ans);
-
+	printf("Error: %f\n", M_PI - ans);
 	finish(startCpu, startWall);
         return 0;
 }
